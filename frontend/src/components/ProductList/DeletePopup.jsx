@@ -1,4 +1,4 @@
-import "./index.css";
+import "./DeletePopup.css";
 
 export default function DeletePopup({ isOpen, onClose, onConfirm, productName }) {
   if (!isOpen) return null;

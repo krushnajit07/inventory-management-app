@@ -10,7 +10,7 @@ import ProductRowEditable from "./ProductRowEditable";
 
 import DeletePopup from "./DeletePopup";
 import HistorySidebar from "./HistorySidebar";
-
+import Loader from "../Loader/"
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
@@ -25,6 +25,7 @@ export default function ProductList() {
   const [historyData, setHistoryData] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchProducts();
@@ -32,10 +33,13 @@ export default function ProductList() {
 
   const fetchProducts = async () => {
     try {
+      setLoading(true);
       const res = await API.get("/products");
       setProducts(res.data || []);
     } catch (err) {
       console.error("Error fetching products:", err);
+    }finally {
+      setLoading(false);
     }
   };
 
@@ -76,12 +80,14 @@ export default function ProductList() {
     
 
     const requestDelete = (product) => {
+      console.log("req del")
       setProductToDelete(product);
       setDeletePopupOpen(true);
     };
 
     const confirmDelete = async () => {
       try {
+        setLoading(true);
         await API.delete(`/products/${productToDelete.id}`);
         
         setProducts((prev) => prev.filter((p) => p.id !== productToDelete.id));
@@ -91,6 +97,8 @@ export default function ProductList() {
       } catch (err) {
         alert("Error deleting product");
         console.error(err);
+      }finally {
+        setLoading(false);
       }
     };
 
@@ -181,8 +189,9 @@ export default function ProductList() {
         isOpen={deletePopupOpen}
         onClose={() => setDeletePopupOpen(false)}
         onConfirm={confirmDelete}
-        productName={productToDelete.name}
+        productName={productToDelete?.name}
       />
+      {loading && <Loader />}
     </div>
   );
 }   
