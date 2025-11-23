@@ -28,16 +28,16 @@ const db = new sqlite3.Database(dbPath, (err) => {
     );
 
     db.run(
-      `CREATE TABLE IF NOT EXISTS inventory_history (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        product_id INTEGER,
-        old_quantity INTEGER,
-        new_quantity INTEGER,
-        change_date TEXT,
-        user_info TEXT,
-        FOREIGN KEY(product_id) REFERENCES products(id)
-      )`
-    );
+      `CREATE TABLE IF NOT EXISTS inventory_logs (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      productId INTEGER,
+      oldStock INTEGER,
+      newStock INTEGER,
+      changedBy TEXT,
+      timestamp TEXT,
+      FOREIGN KEY(productId) REFERENCES products(id)
+    )`
+    );  
   });
 });
 

@@ -5,13 +5,11 @@ import "./index.css";
 import SearchBar from "./SearchBar";
 import CategoryFilter from "./CategoryFilter";
 import HeaderActions from "./HeaderActions";
-import ProductRow from "./ProductRow/";
+import ProductRow from "./ProductRow";
 import ProductRowEditable from "./ProductRowEditable";
 
 import DeletePopup from "./DeletePopup";
 import HistorySidebar from "./HistorySidebar";
-
-
 
 
 export default function ProductList() {
@@ -32,7 +30,6 @@ export default function ProductList() {
     fetchProducts();
   }, []);
 
-  // Fetch all products once
   const fetchProducts = async () => {
     try {
       const res = await API.get("/products");
@@ -68,8 +65,7 @@ export default function ProductList() {
     }
   };
 
-
-  // Derived filtered list
+  
   const filtered = products
     .filter((p) =>
       p.name.toLowerCase().includes(search.toLowerCase())

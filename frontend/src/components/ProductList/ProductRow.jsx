@@ -1,4 +1,4 @@
-import "./index.css";
+import "./ProductRow.css";
 
 export default function ProductRow({ product, onEdit, onDelete, onOpenHistory }) {
   return (
