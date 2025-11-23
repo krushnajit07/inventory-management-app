@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://inventory-management-app-uo9n.onrender.com/api",
+  baseURL: "https://inventory-management-app-uo9n.onrender.com/api",
 });
 
 export default API;
