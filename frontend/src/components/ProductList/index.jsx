@@ -181,7 +181,7 @@ export default function ProductList() {
         isOpen={deletePopupOpen}
         onClose={() => setDeletePopupOpen(false)}
         onConfirm={confirmDelete}
-        productName={productToDelete?.name}
+        productName={productToDelete.name}
       />
     </div>
   );
