@@ -8,7 +8,7 @@ export default function HeaderActions({ refreshProducts }) {
 
   // Handle Export CSV
   const handleExport = () => {
-    window.location.href = "http://localhost:5000/api/products/export";
+    window.location.href = "https://inventory-management-app-uo9n.onrender.com/api/products/export";
   };
 
   // Handle Import CSV
