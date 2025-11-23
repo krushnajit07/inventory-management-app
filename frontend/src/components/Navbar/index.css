@@ -1,0 +1,26 @@
+.navbar {
+  width: 100%;
+  background: #0077ff;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid yellow;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}

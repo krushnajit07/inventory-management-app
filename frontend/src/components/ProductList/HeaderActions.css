@@ -1,0 +1,30 @@
+.headerActions {
+  display: flex;
+  gap: 10px;
+}
+
+.addBtn,
+.exportBtn,
+.importBtn {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background: #0077ff;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.importBtn input {
+  display: none;
+}
+
+.exportBtn {
+  background: #28a745;
+}
+
+.addBtn:hover,
+.exportBtn:hover,
+.importBtn:hover {
+  opacity: 0.8;
+}
