@@ -6,7 +6,7 @@ export default function ProductRow({ product, onEdit, onDelete, onOpenHistory })
       <td>
         {product.image ? (
           <img
-            src={`http://localhost:5000${product.image}`}
+            src={`https://inventory-management-app-uo9n.onrender.com${product.image}`}
             alt="product"
             className="prod-img"
           />
